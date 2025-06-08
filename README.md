@@ -1,12 +1,12 @@
-# odin-restaurant-page
-## Odin - Project {nr}: {title}
+# odin-weather-app
+## Odin - Project #11: Weather App
 
-{info}
+This weather app is able to display the current weather for any location you search for! It uses the [Visual Crossing Weather API](https://www.visualcrossing.com/).
 
 ## General Info
-Date: {date}
+Date: 08.06.2025
 
-Hours Working per Day: {hw}
+Hours Working per Day: 5h
 
 Finish: {date}
 
@@ -19,4 +19,4 @@ Hours Worked: {hw}
 ### Progress on Node.js Path
 Intermediate HTML and CSS: ✅ Complete
 
-Javascript Course: {p}
+Javascript Course: ~55%
