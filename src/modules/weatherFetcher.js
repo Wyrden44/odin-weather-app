@@ -16,12 +16,11 @@ export default class WeatherFetcher {
     async fetchData(location) {
         try {
             const response = await fetch(this.buildUrl(location), { method: "GET", mode: "cors" });
-            const data = await response.json();            
+            const data = await response.json();
+            return data;     
         } catch (error) {
             console.log("Error occurred when fetching data:", error);
-            return error;
+            throw error;
         }
-        
-        return data;
     }
 }

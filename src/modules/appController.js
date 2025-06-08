@@ -1,13 +1,27 @@
-import WeatherFetcher from "./weatherFetcher";
+import DataBundler from "./dataBundler";
 
 export default class AppController {
-    #weatherFetcher;
+    #dataBundler;
 
     constructor() {
-        this.#weatherFetcher = new WeatherFetcher(
-            "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/",
-        	"UF9G2QFR2W3NDNWMS3HVQ8P2U"
-        );
-        //this.#weatherFetcher.fetchData("Berlin");
+        this.#dataBundler = new DataBundler();
+    }
+
+    getAndDisplayLocationData(location) {
+        this.#dataBundler.getTemperatureAndCondition(location)
+            .then(data => {
+                this.displayLocationData(data);
+            })
+            .catch(err => {
+                this.showFetchingError(err);
+            });
+    }
+
+    displayLocationData(data) {
+        console.log("AppController displaying data:", data);
+    }
+
+    showFetchingError(error) {
+        console.log("AppController showing error:", error);
     }
 }

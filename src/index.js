@@ -1,4 +1,6 @@
 import './styles.css';
 import AppController from './modules/appController';
 
-new AppController();
+const appController = new AppController();
+
+window.appController = appController;
