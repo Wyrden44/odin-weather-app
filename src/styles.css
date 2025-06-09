@@ -143,6 +143,7 @@ form button:hover {
 .location-info p {
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
 }
 
 .main-weather-info {
