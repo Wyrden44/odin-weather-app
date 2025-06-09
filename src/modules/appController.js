@@ -13,15 +13,16 @@ export default class AppController {
     getAndDisplayLocationData(location) {
         this.#dataBundler.getTemperatureAndCondition(location)
             .then(data => {
-                this.displayLocationData(data);
+                this.displayLocationData(location, data);
             })
             .catch(err => {
                 this.showFetchingError(err);
             });
     }
 
-    displayLocationData(data) {
+    displayLocationData(location, data) {
         console.log("AppController displaying data:", data);
+        this.#DOMManager.displayWeatherData(location, data);
     }
 
     showFetchingError(error) {
