@@ -40,4 +40,43 @@ export default class WeatherDisplayer {
         mainContainer.appendChild(tempElement);
         this.#container.appendChild(mainContainer);
     }
+
+    getIcon(iconName) {
+        // creates a weather icon element
+        const icon = document.createElement("i");
+        icon.classList.add("wi");
+        switch (iconName) {
+            case "snow":
+                icon.classList.add("wi-snow");
+                break;
+            case "rain":
+                icon.classList.add("wi-rain");
+                break;
+            case "fog":
+                icon.classList.add("wi-fog");
+                break;
+            case "wind":
+                icon.classList.add("wi-strong-wind");
+                break;
+            case "cloudy":
+                icon.classList.add("wi-cloud");
+                break;
+            case "partly-cloudy-day":
+                icon.classList.add("wi-day-cloudy");
+                break;
+            case "partly-cloudy-night":
+                icon.classList.add("wi-night-alt-cloudy");
+                break;
+            case "clear-day":
+                icon.classList.add("wi-day-sunny");
+                break;
+            case "clear-night":
+                icon.classList.add("wi-night-clear");
+                break;
+            default:
+                icon.classList.add("wi-cloud");
+                break;
+        }
+        return icon;
+    }
 }
