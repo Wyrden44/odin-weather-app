@@ -1,10 +1,13 @@
 import DataBundler from "./dataBundler";
+import DOMManager from "./DOMManager";
 
 export default class AppController {
     #dataBundler;
+    #DOMManager;
 
     constructor() {
         this.#dataBundler = new DataBundler();
+        this.#DOMManager = new DOMManager(this);
     }
 
     getAndDisplayLocationData(location) {
