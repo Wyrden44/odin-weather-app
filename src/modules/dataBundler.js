@@ -14,9 +14,13 @@ export default class DataBundler {
     async getData(location) {
         const weatherData = await this.#weatherFetcher.fetchData(location);
         const { resolvedLocation } = this.getLocation(weatherData);
-        const { temperature, conditions } = this.getTemperatureAndCondition(weatherData);
+        let { temperature, conditions } = this.getTemperatureAndCondition(weatherData);
         const { iconName } = this.getIconName(weatherData);
-        const { sensation, windSpeed, uvIndex, humidity, pressure } = DataSelector.getSupplementaryInformation(weatherData);
+        let { sensation, windSpeed, uvIndex, humidity, pressure } = DataSelector.getSupplementaryInformation(weatherData);
+
+        // Fahrenheit to Celcius (one decimal)
+        temperature = Math.round((temperature-32) * (5/9) * 10) / 10;
+        sensation = Math.round((sensation-32) * (5/9) * 10) / 10;
 
         return { resolvedLocation, temperature, conditions, iconName, sensation, windSpeed, uvIndex, humidity, pressure };
     }
