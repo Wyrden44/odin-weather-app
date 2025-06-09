@@ -11,6 +11,7 @@ module.exports = merge(common, {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/odin-weather-app/'
   },
   module: {
     rules: [
