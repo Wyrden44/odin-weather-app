@@ -8,7 +8,7 @@
 <body>
     <div class="location-form-container">
         <div class="heading">
-            <h1>Amazing Weather App</h1>
+            <h1>What's the weather in...</h1>
             <p>Get weather data from around the world!</p>
         </div>
         <form action="#" id="location-form">
@@ -18,6 +18,13 @@
     </div>
     <div class="weather-display inactive">
         
+    </div>
+
+    <div id="error-dialog-container">
+        <dialog closedby="any">
+            <p id="dialog-message"></p>
+            <button id="close-dialog" onclick="document.querySelector('dialog').close()">Close</button>
+        </dialog>
     </div>
 </body>
 </html>

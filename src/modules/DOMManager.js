@@ -22,4 +22,13 @@ export default class DOMManager {
     displayWeatherData(location, data) {
         this.#weatherDisplayer.displayData(location, data);
     }
+
+    showError(errorMessage) {
+        const errorDialog = document.querySelector("dialog");
+        const errorMessageElement = document.querySelector("#dialog-message");
+
+        errorMessageElement.textContent = errorMessage;
+
+        errorDialog.showModal();
+    }
 }

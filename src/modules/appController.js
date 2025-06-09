@@ -26,6 +26,6 @@ export default class AppController {
     }
 
     showFetchingError(error) {
-        console.log("AppController showing error:", error);
+        this.#DOMManager.showError(error);
     }
 }
