@@ -13,11 +13,12 @@ export default class DataBundler {
 
     async getData(location) {
         const weatherData = await this.#weatherFetcher.fetchData(location);
+        const { resolvedLocation } = this.getLocation(weatherData);
         const { temperature, conditions } = this.getTemperatureAndCondition(weatherData);
         const { iconName } = this.getIconName(weatherData);
         const { sensation, windSpeed, uvIndex, humidity, pressure } = DataSelector.getSupplementaryInformation(weatherData);
 
-        return { temperature, conditions, iconName, sensation, windSpeed, uvIndex, humidity, pressure };
+        return { resolvedLocation, temperature, conditions, iconName, sensation, windSpeed, uvIndex, humidity, pressure };
     }
 
     getTemperatureAndCondition(weatherData) {
@@ -26,5 +27,9 @@ export default class DataBundler {
 
     getIconName(weatherData) {
         return DataSelector.getIconName(weatherData);
+    }
+
+    getLocation(weatherData) {
+        return DataSelector.getLocation(weatherData);
     }
 }

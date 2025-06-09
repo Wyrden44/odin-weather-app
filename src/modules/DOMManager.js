@@ -19,8 +19,8 @@ export default class DOMManager {
         });
     }
 
-    displayWeatherData(location, data) {
-        this.#weatherDisplayer.displayData(location, data);
+    displayWeatherData(data) {
+        this.#weatherDisplayer.displayData(data);
     }
 
     showError(errorMessage) {

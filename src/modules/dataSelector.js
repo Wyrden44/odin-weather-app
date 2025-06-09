@@ -22,4 +22,10 @@ export default class DataSelector {
     
         return { sensation, windSpeed, uvIndex, humidity, pressure };
     }
+
+    static getLocation(dataPackage) {
+        const resolvedLocation = dataPackage?.resolvedAddress ?? "Error: Location unknown";
+
+        return { resolvedLocation };
+    }
 }

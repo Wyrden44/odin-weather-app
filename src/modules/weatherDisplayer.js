@@ -5,14 +5,14 @@ export default class WeatherDisplayer {
         this.#container = container;
     }
 
-    displayData(location, data) {
+    displayData(data) {
         this.#container.textContent = "";
         if (this.#container.classList.contains("inactive")) {
             this.#container.classList.remove("inactive");
             this.#container.classList.add("active");
         }
         
-        this.displayLocation(location);
+        this.displayLocation(data.resolvedLocation);
         this.displayTemperatureAndCondition(data.temperature, data.conditions, data.iconName);
         this.displaySupplementaryInformation(data.sensation, data.windSpeed, data.uvIndex, data.humidity, data.pressure);
     }
