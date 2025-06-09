@@ -31,4 +31,18 @@ export default class DOMManager {
 
         errorDialog.showModal();
     }
+
+    showWeatherDataLoadingAnimation() {
+        const loader = document.querySelector(".loader");
+
+        loader.classList.remove("inactive");
+        loader.classList.add("active");
+    }
+
+    hideWeatherDataLoadingAnimation() {
+        const loader = document.querySelector(".loader");
+
+        loader.classList.remove("active");
+        loader.classList.add("inactive");
+    }
 }

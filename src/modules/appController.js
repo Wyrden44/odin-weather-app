@@ -11,12 +11,16 @@ export default class AppController {
     }
 
     getAndDisplayLocationData(location) {
+        this.#DOMManager.showWeatherDataLoadingAnimation();
         this.#dataBundler.getData(location)
             .then(data => {
                 this.displayLocationData(data);
             })
             .catch(err => {
                 this.showFetchingError(err);
+            })
+            .finally(() => {
+                this.#DOMManager.hideWeatherDataLoadingAnimation();
             });
     }
 
