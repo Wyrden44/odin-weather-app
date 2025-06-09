@@ -121,6 +121,14 @@ form button:hover {
     ;
 }
 
+.weather-display.inactive {
+    display: none;
+}
+
+.weather-display.active {
+    display: grid;
+}
+
 .location-info {
     grid-area: location;
     display: flex;

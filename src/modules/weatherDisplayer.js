@@ -7,6 +7,10 @@ export default class WeatherDisplayer {
 
     displayData(location, data) {
         this.#container.textContent = "";
+        if (this.#container.classList.contains("inactive")) {
+            this.#container.classList.remove("inactive");
+            this.#container.classList.add("active");
+        }
         
         this.displayLocation(location);
         this.displayTemperatureAndCondition(data.temperature, data.conditions, data.iconName);
