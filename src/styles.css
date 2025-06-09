@@ -203,6 +203,39 @@ form button:hover {
     background-color: rgba(2,0,36,0.25);
 }
 
+dialog {
+    align-self: center;
+    justify-self: center;
+
+    padding: var(--box-padding);
+    border: none;
+    border-radius: var(--box-radius);
+    text-align: center;
+
+    background-color: var(--white);
+}
+
+dialog p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+dialog button {
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    border-radius: 15px;
+    border: none;
+    background-color: var(--light-blue);
+    border: 1px solid transparent;
+}
+
+dialog button:hover {
+    cursor: pointer;
+    border-color: var(--black);
+}
+
 @media only screen and (max-width: 700px) {
     .weather-display {
         width: 100%;
