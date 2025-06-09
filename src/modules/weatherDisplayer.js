@@ -14,7 +14,7 @@ export default class WeatherDisplayer {
 
     displayLocation(location) {
         const locationContainer = document.createElement("div");
-        mainContainer.classList.add("location-info");
+        locationContainer.classList.add("location-info");
 
         const locationElement = document.createElement("p");
         locationElement.id = "location";
@@ -34,7 +34,7 @@ export default class WeatherDisplayer {
 
         const tempElement = document.createElement("p");
         tempElement.id = "temperature";
-        tempElement.textContent = temp + "°C";
+        tempElement.textContent = temp;
 
         mainContainer.appendChild(conditionElement);
         mainContainer.appendChild(tempElement);
