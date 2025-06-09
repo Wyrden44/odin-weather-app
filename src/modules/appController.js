@@ -11,7 +11,7 @@ export default class AppController {
     }
 
     getAndDisplayLocationData(location) {
-        this.#dataBundler.getTemperatureAndCondition(location)
+        this.#dataBundler.getData(location)
             .then(data => {
                 this.displayLocationData(location, data);
             })

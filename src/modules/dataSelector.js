@@ -6,4 +6,10 @@ export default class DataSelector {
         
         return { temperature, conditions };
     }
+
+    static getIconName(dataPackage) {
+        // for displaying icons
+        const iconName = dataPackage?.currentConditions?.icon ?? "Error: Icon not available";
+        return { iconName }
+    }
 }

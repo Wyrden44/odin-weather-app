@@ -9,7 +9,7 @@ export default class WeatherDisplayer {
         this.#container.textContent = "";
         
         this.displayLocation(location);
-        this.displayTemperatureAndCondition(data.temperature, data.conditions);
+        this.displayTemperatureAndCondition(data.temperature, data.conditions, data.iconName);
     }
 
     displayLocation(location) {
@@ -24,9 +24,13 @@ export default class WeatherDisplayer {
         this.#container.appendChild(locationContainer);
     }
 
-    displayTemperatureAndCondition(temp, condition) {
+    displayTemperatureAndCondition(temp, condition, iconName) {
         const mainContainer = document.createElement("div");
         mainContainer.classList.add("main-weather-info");
+
+        // display icon
+        const iconElement = this.getIcon(iconName);
+        iconElement.classList.add("weather-icon");
 
         const conditionElement = document.createElement("p");
         conditionElement.id = "condition";
@@ -36,8 +40,9 @@ export default class WeatherDisplayer {
         tempElement.id = "temperature";
         tempElement.textContent = temp;
 
-        mainContainer.appendChild(conditionElement);
+        mainContainer.appendChild(iconElement);
         mainContainer.appendChild(tempElement);
+        mainContainer.appendChild(conditionElement);
         this.#container.appendChild(mainContainer);
     }
 
