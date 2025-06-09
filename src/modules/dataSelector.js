@@ -12,4 +12,14 @@ export default class DataSelector {
         const iconName = dataPackage?.currentConditions?.icon ?? "Error: Icon not available";
         return { iconName }
     }
+
+    static getSupplementaryInformation(dataPackage) {
+        const sensation = dataPackage?.currentConditions?.feelslike ?? "Error: Sensation not available";
+        const windSpeed = dataPackage?.currentConditions?.windspeed ?? "Error: Wind Speed not available";
+        const uvIndex = dataPackage?.currentConditions?.uvindex ?? "Error: UV Index not available";
+        const humidity = dataPackage?.currentConditions?.humidity ?? "Error: Humidity not available";
+        const pressure = dataPackage?.currentConditions?.pressure ?? "Error: Pressure not available";
+    
+        return { sensation, windSpeed, uvIndex, humidity, pressure };
+    }
 }

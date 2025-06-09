@@ -10,6 +10,7 @@ export default class WeatherDisplayer {
         
         this.displayLocation(location);
         this.displayTemperatureAndCondition(data.temperature, data.conditions, data.iconName);
+        this.displaySupplementaryInformation(data.sensation, data.windSpeed, data.uvIndex, data.humidity, data.pressure);
     }
 
     displayLocation(location) {
@@ -44,6 +45,69 @@ export default class WeatherDisplayer {
         mainContainer.appendChild(tempElement);
         mainContainer.appendChild(conditionElement);
         this.#container.appendChild(mainContainer);
+    }
+
+    displaySupplementaryInformation(sensation, windSpeed, uvIndex, humidity, pressure) {
+        const supplementaryContainer = document.createElement("div");
+        supplementaryContainer.classList.add("supplementary-weather-info");
+
+        const sensationElement = document.createElement("p");
+        const descriptionSpan = document.createElement("span");
+        descriptionSpan.classList.add("description");
+        descriptionSpan.textContent = "Feels like: ";
+        const valueSpan = document.createElement("span");
+        valueSpan.classList.add("value");
+        valueSpan.textContent = sensation + "°";
+        sensationElement.appendChild(descriptionSpan);
+        sensationElement.appendChild(valueSpan);
+
+        const windSpeedElement = document.createElement("p");
+        const windSpeedDescriptionSpan = document.createElement("span");
+        windSpeedDescriptionSpan.classList.add("description");
+        windSpeedDescriptionSpan.textContent = "Wind Speed: ";
+        const windSpeedValueSpan = document.createElement("span");
+        windSpeedValueSpan.classList.add("value");
+        windSpeedValueSpan.textContent = windSpeed + " km/h";
+        windSpeedElement.appendChild(windSpeedDescriptionSpan);
+        windSpeedElement.appendChild(windSpeedValueSpan);
+
+        const uvIndexElement = document.createElement("p");
+        const uvIndexDescriptionSpan = document.createElement("span");
+        uvIndexDescriptionSpan.classList.add("description");
+        uvIndexDescriptionSpan.textContent = "UV Index: ";
+        const uvIndexValueSpan = document.createElement("span");
+        uvIndexValueSpan.classList.add("value");
+        uvIndexValueSpan.textContent = uvIndex;
+        uvIndexElement.appendChild(uvIndexDescriptionSpan);
+        uvIndexElement.appendChild(uvIndexValueSpan);
+        
+        const humidityElement = document.createElement("p");
+        const humidityDescriptionSpan = document.createElement("span");
+        humidityDescriptionSpan.classList.add("description");
+        humidityDescriptionSpan.textContent = "Humidity: ";
+        const humidityValueSpan = document.createElement("span");
+        humidityValueSpan.classList.add("value");
+        humidityValueSpan.textContent = humidity + "%";
+        humidityElement.appendChild(humidityDescriptionSpan);
+        humidityElement.appendChild(humidityValueSpan);
+
+        const pressureElement = document.createElement("p");
+        const pressureDescriptionSpan = document.createElement("span");
+        pressureDescriptionSpan.classList.add("description");
+        pressureDescriptionSpan.textContent = "Pressure: ";
+        const pressureValueSpan = document.createElement("span");
+        pressureValueSpan.classList.add("value");
+        pressureValueSpan.textContent = pressure + " hPa";
+        pressureElement.appendChild(pressureDescriptionSpan);
+        pressureElement.appendChild(pressureValueSpan);
+
+        supplementaryContainer.appendChild(sensationElement);
+        supplementaryContainer.appendChild(windSpeedElement);
+        supplementaryContainer.appendChild(uvIndexElement);
+        supplementaryContainer.appendChild(humidityElement);
+        supplementaryContainer.appendChild(pressureElement);
+
+        this.#container.appendChild(supplementaryContainer);
     }
 
     getIcon(iconName) {
